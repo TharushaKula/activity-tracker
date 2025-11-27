@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Search, X, Filter } from "lucide-react";
 import { Activity } from "@/lib/firebase/activities";
 import { Badge } from "@/components/ui/badge";

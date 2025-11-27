@@ -1,4 +1,5 @@
 import { SignIn } from "@clerk/nextjs";
+import { Calendar } from "lucide-react";
 
 export default function SignInPage() {
   return (
