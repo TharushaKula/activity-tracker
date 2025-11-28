@@ -44,9 +44,9 @@ export default async function HomePage() {
                 asChild 
                 variant="outline" 
                 size="lg" 
-                className="text-lg px-8 border-2 border-white text-white hover:bg-white/10"
+                className="text-lg px-8 border-2 "
               >
-                <Link href="/sign-in">Sign In</Link>
+                <Link href="/sign-in" className="text-black">Sign In</Link>
               </Button>
             </div>
           </div>
