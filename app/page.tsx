@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ContributionGrid } from "@/components/dashboard/contribution-grid";
 import Link from "next/link";
 import { ArrowRight, Calendar, TrendingUp, Target } from "lucide-react";
 
@@ -50,6 +51,26 @@ export default async function HomePage() {
               </Button>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Progress Grid Section - GitHub Style */}
+      <div className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Visualize Your Progress
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              See your activity patterns at a glance with our GitHub-style
+              contribution grid. Track your consistency and build better habits.
+            </p>
+          </div>
+          <Card className="border border-gray-200 shadow-lg p-8 bg-white">
+            <CardContent className="p-0">
+              <ContributionGrid weeks={52} />
+            </CardContent>
+          </Card>
         </div>
       </div>
 
