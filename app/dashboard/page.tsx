@@ -6,6 +6,8 @@ import { RecentActivities } from "@/components/dashboard/recent-activities";
 import { QuickActions } from "@/components/dashboard/quick-actions";
 import { StreakCard } from "@/components/dashboard/streak-card";
 import { ReminderBanner } from "@/components/dashboard/reminder-banner";
+import { ContributionGrid } from "@/components/dashboard/contribution-grid";
+import { Card, CardContent } from "@/components/ui/card";
 import { calculateStreak } from "@/lib/utils";
 
 export default async function DashboardPage() {
@@ -42,6 +44,13 @@ export default async function DashboardPage() {
         <StreakCard streak={streak} />
         <QuickActions />
       </div>
+
+      {/* Contribution Grid - GitHub Style */}
+      <Card className="border border-gray-200 shadow-sm">
+        <CardContent className="p-6">
+          <ContributionGrid weeks={52} activities={activities} />
+        </CardContent>
+      </Card>
 
       {/* Recent Activities */}
       <RecentActivities activities={activities.slice(0, 10)} />
