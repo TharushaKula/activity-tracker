@@ -143,13 +143,15 @@ export function ContributionGrid({ weeks = 52, activities = [] }: ContributionGr
 
           <div className="flex gap-1 relative">
             {/* Day labels */}
-            <div className="flex flex-col gap-1 pt-6">
+            <div className="flex flex-col gap-1">
               {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
                 (day, idx) => (
                   <div
                     key={day}
-                    className="text-xs text-gray-600 h-3 flex items-center justify-end pr-2"
+                    className="text-xs text-gray-600 flex items-center justify-end pr-2"
                     style={{
+                      height: "12px",
+                      minHeight: "12px",
                       visibility: idx % 2 === 0 ? "visible" : "hidden",
                     }}
                   >
