@@ -115,18 +115,30 @@ export function ContributionGrid({ weeks = 52, activities = [] }: ContributionGr
       <div className="overflow-x-auto">
         <div className="inline-block min-w-full">
           {/* Month labels */}
-          <div className="flex mb-2 pl-8">
-            {monthLabels.map(({ month, weekIndex }, idx) => (
-              <div
-                key={idx}
-                className="text-xs text-gray-600"
-                style={{
-                  marginLeft: idx === 0 ? `${weekIndex * 14}px` : "0px",
-                }}
-              >
-                {month}
-              </div>
-            ))}
+          <div className="relative mb-2 pl-8" style={{ height: "16px" }}>
+            {monthLabels.map(({ month, weekIndex }, idx) => {
+              // Each week column is w-3 (12px) + gap-1 (4px) = 16px
+              const weekWidth = 16;
+              const position = weekIndex * weekWidth;
+              // Calculate spacing to next month (or end of grid)
+              const nextWeekIndex = idx < monthLabels.length - 1 
+                ? monthLabels[idx + 1].weekIndex 
+                : weeks;
+              const spacing = (nextWeekIndex - weekIndex) * weekWidth;
+              
+              return (
+                <div
+                  key={idx}
+                  className="text-xs text-gray-600 absolute"
+                  style={{
+                    left: `${position}px`,
+                    minWidth: `${spacing}px`,
+                  }}
+                >
+                  {month}
+                </div>
+              );
+            })}
           </div>
 
           <div className="flex gap-1 relative">
